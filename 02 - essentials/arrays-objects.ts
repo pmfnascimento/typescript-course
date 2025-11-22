@@ -10,3 +10,8 @@ users = ['10',5];
 users = [5, 1];
 users = ['Max', 'Ana'];
 
+let possibleResults: [number, number];
+
+possibleResults = [1, -1];
+possibleResults = [5, 10, 12];
+
