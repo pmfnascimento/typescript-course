@@ -1,0 +1,12 @@
+function generateError(msg?: string) {
+    throw new Error(msg)
+}
+
+generateError('An error occurer');
+generateError();
+
+type Admin = {
+    name: string;
+    age: number;
+    role?: 'admin' | 'guest'
+};
