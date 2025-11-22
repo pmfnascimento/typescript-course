@@ -32,3 +32,12 @@ let user: {
         id: 5
     }
 };
+
+let val: {} = 'some text';
+
+let data: Record<string, number | string>;
+
+data = {
+    name: 'Max',
+    age: 80
+};
