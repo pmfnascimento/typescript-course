@@ -32,3 +32,19 @@ if (button) {
 
 console.log(add(2));
 
+const hobbies: string[] = ['Sports', 'Cooking'];
+const activeHobbies: string[] = ['Hiking'];
+
+activeHobbies.push(...hobbies);
+
+console.log(activeHobbies);
+
+const person = {
+    name: 'Max',
+    age: 30
+};
+
+const copiePerson = { ...person };
+
+console.log(copiePerson);
+
