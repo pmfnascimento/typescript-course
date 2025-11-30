@@ -42,3 +42,5 @@ user = {
   },
   role: "Admin",
 };
+
+user.login();
