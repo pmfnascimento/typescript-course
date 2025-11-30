@@ -1,3 +1,18 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __esDecorate = (this && this.__esDecorate) || function (ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
     function accept(f) { if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected"); return f; }
     var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
@@ -40,6 +55,15 @@ function logger(target, ctx) {
     console.log("logger decorator");
     console.log(target);
     console.log(ctx);
+    return /** @class */ (function (_super) {
+        __extends(class_1, _super);
+        function class_1() {
+            var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.age = 35;
+            return _this;
+        }
+        return class_1;
+    }(target));
 }
 var Person = function () {
     var _classDecorators = [logger];
@@ -66,3 +90,5 @@ var Person = function () {
     return Person = _classThis;
 }();
 var person = new Person();
+person.greet();
+console.log(person);
