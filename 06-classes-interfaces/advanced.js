@@ -44,9 +44,15 @@ var User = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    User.greet = function () {
+        console.log('Hello');
+    };
+    User.eid = 'USER';
     return User;
 }());
+console.log(User.eid);
+User.greet();
 var user = new User();
 user.firstName = 'Max';
-user.lastName = '';
+user.lastName = 'Müller';
 console.log(user.fullName);

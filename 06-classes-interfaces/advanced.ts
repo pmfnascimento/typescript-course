@@ -27,10 +27,19 @@ class User {
     get fullName() {
         return `${this._firstName} ${this._lastName}`;
     }
+
+    static eid = 'USER';
+
+    static greet() {
+        console.log('Hello');
+    }
 }
+
+console.log(User.eid);
+User.greet();
 
 const user = new User();
 user.firstName = 'Max';
-user.lastName = '';
+user.lastName = 'Müller';
 console.log(user.fullName);
 
