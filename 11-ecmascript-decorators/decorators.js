@@ -71,8 +71,9 @@ function logger(target, ctx) {
     }(target));
 }
 function autobind(target, ctx) {
-    console.log(target);
-    console.log(ctx);
+    ctx.addInitializer(function () {
+        this[ctx.name] = this[ctx.name].bind(this);
+    });
 }
 var Person = function () {
     var _classDecorators = [logger];
@@ -84,7 +85,6 @@ var Person = function () {
     var Person = _classThis = /** @class */ (function () {
         function Person_1() {
             this.name = (__runInitializers(this, _instanceExtraInitializers), "Max");
-            this.greet = this.greet.bind(this);
         }
         Person_1.prototype.greet = function () {
             console.log("Hi, I am " + this.name);
