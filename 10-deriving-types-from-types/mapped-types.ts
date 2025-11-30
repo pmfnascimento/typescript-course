@@ -1,10 +1,10 @@
 type Operations = {
-  add: (a: number, b: number) => number;
-  subtract: (a: number, b: number) => number;
+  readonly add: (a: number, b: number) => number;
+  readonly subtract: (a: number, b: number) => number;
 };
 
 type Results<T> = {
-  [Key in keyof T]: number;
+  -readonly [Key in keyof T]?: number;
 };
 
 let mathOperations: Operations = {
@@ -20,3 +20,7 @@ let mathResults: Results<Operations> = {
   add: mathOperations.add(1, 2),
   subtract: mathOperations.subtract(5, 2),
 };
+mathResults.add = 10;
+mathResults.subtract = 5;
+
+console.log(mathResults);
