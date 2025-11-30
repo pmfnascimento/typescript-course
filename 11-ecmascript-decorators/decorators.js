@@ -58,8 +58,13 @@ function logger(target, ctx) {
     return /** @class */ (function (_super) {
         __extends(class_1, _super);
         function class_1() {
-            var _this = _super !== null && _super.apply(this, arguments) || this;
-            _this.age = 35;
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
+            var _this = _super.apply(this, args) || this;
+            console.log("class constructor");
+            console.log(_this);
             return _this;
         }
         return class_1;
@@ -90,5 +95,4 @@ var Person = function () {
     return Person = _classThis;
 }();
 var person = new Person();
-person.greet();
-console.log(person);
+var person2 = new Person();
