@@ -24,3 +24,11 @@ let roles = ["admin", "guest", "editor"] as const;
 
 const firstRole = roles[0];
 console.log(firstRole);
+
+const dataEntries = {
+  entry1: 0.51,
+  entry2: -1.23,
+  entry3: "some string",
+} satisfies Record<string, number | string>;
+
+console.log(dataEntries);

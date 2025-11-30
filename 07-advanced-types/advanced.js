@@ -1,3 +1,4 @@
+var someObj;
 var store = {};
 store.id = 5;
 store.isOpen = true;
@@ -14,3 +15,8 @@ console.log(store);
 var roles = ["admin", "guest", "editor"];
 var firstRole = roles[0];
 console.log(firstRole);
+var dataEntries = {
+    entry1: 0.51,
+    entry2: -1.23,
+};
+console.log(dataEntries);
