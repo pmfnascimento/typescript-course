@@ -1,1 +1,1 @@
-let name: Array<string> = ["Max", "Ana"];
+let names: Array<string> = ["Max", "Ana"];
