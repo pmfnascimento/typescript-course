@@ -1,10 +1,15 @@
 interface Authenticatable {
   email: string;
   password: string;
+  role: string;
 
   login(): void;
   logout(): void;
 }
+
+// interface Authenticatable {
+//   role: string;
+// }
 
 let user: Authenticatable;
 
@@ -17,4 +22,5 @@ user = {
   logout() {
     console.log("Logout");
   },
+  role: "Admin",
 };
