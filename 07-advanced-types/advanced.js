@@ -11,3 +11,6 @@ store.address = {
     country: "USA",
 };
 console.log(store);
+var roles = ["admin", "guest", "editor"];
+var firstRole = roles[0];
+console.log(firstRole);

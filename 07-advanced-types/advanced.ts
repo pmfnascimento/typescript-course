@@ -17,3 +17,8 @@ store.address = {
 };
 
 console.log(store);
+
+let roles = ["admin", "guest", "editor"] as const;
+
+const firstRole = roles[0];
+console.log(firstRole);
