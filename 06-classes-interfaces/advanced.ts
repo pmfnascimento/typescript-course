@@ -1,20 +1,36 @@
 class User {
-    constructor(private firstName: string, private lastName: string) { }
+    private _firstName: string = '';
+    private _lastName: string = '';
+
+    set firstName(name: string) {
+        if (name.trim() == '') {
+            throw new Error('First name cannot be empty');
+        }
+        this._firstName = name;
+    }
+
+    set lastName(name: string) {
+        if (name.trim() == '') {
+            throw new Error('Last name cannot be empty');
+        }
+        this._lastName = name;
+    }
 
     get getFirstName() {
-        return this.firstName;
+        return this._firstName;
     }
 
     get getLastName() {
-        return this.lastName
+        return this._lastName
     }
 
     get fullName() {
-        return `${this.firstName} ${this.lastName}`;
+        return `${this._firstName} ${this._lastName}`;
     }
 }
 
-const user = new User('Max', 'Müller');
-
+const user = new User();
+user.firstName = 'Max';
+user.lastName = '';
 console.log(user.fullName);
 
