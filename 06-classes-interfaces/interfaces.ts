@@ -19,6 +19,12 @@ class Authenticatable implements Authenticatable {
   logout() {}
 }
 
+// ...
+
+function authenticate(user: Authenticatable) {
+  user.login();
+}
+
 let user: Authenticatable;
 
 user = {
