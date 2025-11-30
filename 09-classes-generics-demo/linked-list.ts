@@ -1,8 +1,13 @@
 class ListNode {}
 
-class LinkedList {
+class LinkedList<T> {
   private root?: ListNode;
   private lenght = 0;
+
+  add(value: T) {
+   
+  }
 }
 
-const list = new LinkedList();
+const numberList = new LinkedList<number>();
+const nameList = new LinkedList<string>();
