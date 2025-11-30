@@ -1,6 +1,6 @@
 class User {
-    private _firstName: string = '';
-    private _lastName: string = '';
+    protected _firstName: string = '';
+    protected _lastName: string = '';
 
     set firstName(name: string) {
         if (name.trim() == '') {
@@ -49,5 +49,15 @@ class Employee extends User {
         super();
         this._salary = _salary;
     }
+
+    work() {
+        this._firstName = 'Max';
+        this._lastName = 'Müller';
+        console.log(this.fullName);
+
+    }
 }
+
+const employee = new Employee(1000);
+employee.work();
 
