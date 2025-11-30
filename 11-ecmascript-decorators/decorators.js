@@ -84,6 +84,7 @@ var Person = function () {
     var Person = _classThis = /** @class */ (function () {
         function Person_1() {
             this.name = (__runInitializers(this, _instanceExtraInitializers), "Max");
+            this.greet = this.greet.bind(this);
         }
         Person_1.prototype.greet = function () {
             console.log("Hi, I am " + this.name);
@@ -103,4 +104,5 @@ var Person = function () {
     return Person = _classThis;
 }();
 var person = new Person();
-var person2 = new Person();
+var greet = person.greet;
+greet();

@@ -34,4 +34,5 @@ class Person {
 }
 
 let person = new Person();
-let person2 = new Person();
+const greet = person.greet;
+greet();
