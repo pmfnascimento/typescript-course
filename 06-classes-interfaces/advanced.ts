@@ -51,13 +51,28 @@ class Employee extends User {
     }
 
     work() {
-        this._firstName = 'Max';
-        this._lastName = 'Müller';
-        console.log(this.fullName);
-
+        console.log(this._firstName);
     }
 }
 
 const employee = new Employee(1000);
 employee.work();
 
+abstract class UIElement {
+    constructor(public identifier: string) { }
+
+    clone(targetLocation: string) {
+        // logic here
+    }
+}
+
+// let uiElement = new UIElement('id');
+
+class SideDrawerElement extends UIElement {
+
+    constructor(public identifier: string, public position: 'left' | 'right') {
+        super(identifier);
+    }
+}
+
+new SideDrawerElement('id', 'left');
