@@ -1,20 +1,29 @@
-type FileSource = { path: string };
+type FileSource = { type: 'file', path: string };
 const fileSource: FileSource = {
   path: "some/path/to/file.csv",
+  type: 'file'
 };
 
-type DBSource = { connectionUrl: string };
+type DBSource = { type: 'db', connectionUrl: string };
 const dbSource: DBSource = {
   connectionUrl: "some-connection-url",
+  type: 'db'
 };
 
 type Source = FileSource | DBSource;
 
 function loadData(source: Source) {
-  // Open + read file OR reach out to database server
-  if ("path" in source) {
-    //source.path; => open file
-    return;
-  }
-  //   source.connectionUrl; => coonection to database
+    // Open + read file OR reach out to database server
+    // if ("path" in source) {
+    //   return;
+    // }
+
+    if(source.type === 'file') {
+        console.log(source.path);
+        return;
+    }
+
+    console.log(source.connectionUrl);
+    return; 
 }
+
