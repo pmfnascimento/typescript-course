@@ -11,3 +11,12 @@ store.age = "27";
 store.isInstructor = true;
 
 console.log(store);
+
+function merge<T>(a: T, b: T) {
+  return [a, b];
+}
+
+let result = merge("Max", "Ana");
+let numbers = merge(2, 4);
+
+console.log(result, numbers);
