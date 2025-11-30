@@ -27,3 +27,10 @@ function anotherMerge<T, K>(a: T, b: K) {
 
 let anotherResult = anotherMerge("Max", 27);
 console.log(anotherResult);
+
+function mergeObj<T extends object>(a: T, b: T) {
+  return { ...a, ...b };
+}
+
+const merged = mergeObj({ username: "Max" }, { age: 35 });
+console.log(merged);
