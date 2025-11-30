@@ -20,3 +20,10 @@ let result = merge("Max", "Ana");
 let numbers = merge(2, 4);
 
 console.log(result, numbers);
+
+function anotherMerge<T, K>(a: T, b: K) {
+  return [a, b];
+}
+
+let anotherResult = anotherMerge("Max", 27);
+console.log(anotherResult);

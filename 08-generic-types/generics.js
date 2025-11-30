@@ -10,3 +10,8 @@ function merge(a, b) {
 var result = merge("Max", "Ana");
 var numbers = merge(2, 4);
 console.log(result, numbers);
+function anotherMerge(a, b) {
+    return [a, b];
+}
+var anotherResult = anotherMerge("Max", 27);
+console.log(anotherResult);
