@@ -2,6 +2,8 @@ type DataStore = {
   [prop: string]: string[] | number | string | boolean | Object;
 };
 
+let someObj: Record<string, string[] | number | string | boolean | Object>;
+
 const store: DataStore = {};
 
 store.id = 5;
