@@ -28,7 +28,7 @@ function anotherMerge<T, K>(a: T, b: K) {
 let anotherResult = anotherMerge("Max", 27);
 console.log(anotherResult);
 
-function mergeObj<T extends object>(a: T, b: T) {
+function mergeObj<T extends object, U extends object>(a: T, b: U) {
   return { ...a, ...b };
 }
 
