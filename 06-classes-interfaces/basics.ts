@@ -11,9 +11,9 @@
 
 class User {
 
-    hobbies: string[] = [];
+    readonly hobbies: string[] = [];
 
-    constructor(public name: string, private age: number) { }
+    constructor(public name: string, private readonly age: number) { }
 
     greet() {
         console.log('My age: ' + this.age);
@@ -22,4 +22,6 @@ class User {
 
 const max = new User('Max', 23);
 const fred = new User('Fred', 23);
+
+max.hobbies.push('Cooking');
 console.log(max, fred);
