@@ -28,9 +28,18 @@ function anotherMerge<T, K>(a: T, b: K) {
 let anotherResult = anotherMerge("Max", 27);
 console.log(anotherResult);
 
-function mergeObj<T extends object>(a: T, b: T) {
+function mergeObj<T extends object, U extends object>(a: T, b: U) {
   return { ...a, ...b };
 }
 
 const merged = mergeObj({ username: "Max" }, { age: 35 });
 console.log(merged);
+
+class User<T> {
+  constructor(public id: T) {}
+}
+
+let user = new User("123");
+let user2 = new User(123);
+
+console.log(user, user2);

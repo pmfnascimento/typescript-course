@@ -31,3 +31,13 @@ function mergeObj(a, b) {
 }
 var merged = mergeObj({ username: "Max" }, { age: 35 });
 console.log(merged);
+var User = /** @class */ (function () {
+    function User(id) {
+        this.id = id;
+    }
+    return User;
+}());
+var user = new User("123");
+var user2 = new User(123);
+user.id = "124";
+console.log(user, user2);
