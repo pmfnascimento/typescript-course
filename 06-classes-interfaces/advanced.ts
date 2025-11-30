@@ -43,3 +43,11 @@ user.firstName = 'Max';
 user.lastName = 'Müller';
 console.log(user.fullName);
 
+class Employee extends User {
+
+    constructor(private _salary: number) {
+        super();
+        this._salary = _salary;
+    }
+}
+
