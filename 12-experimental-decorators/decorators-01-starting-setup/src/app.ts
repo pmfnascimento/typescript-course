@@ -149,24 +149,30 @@ interface ValidatorConfig {
   };
 }
 
-const regiteredValidators: ValidatorConfig = {};
+const registeredValidators: ValidatorConfig = {};
 
 function Required(target: any, propName: string) {
-  regiteredValidators[target.constructor.name] = {
-    ...regiteredValidators[target.constructor.name],
-    [propName]: ["required"],
+  registeredValidators[target.constructor.name] = {
+    ...registeredValidators[target.constructor.name],
+    [propName]: [
+      ...(registeredValidators[target.constructor.name]?.[propName] ?? []),
+      "required",
+    ],
   };
 }
 
 function PositiveNumber(target: any, propName: string) {
-  regiteredValidators[target.constructor.name] = {
-    ...regiteredValidators[target.constructor.name],
-    [propName]: ["positive"],
+  registeredValidators[target.constructor.name] = {
+    ...registeredValidators[target.constructor.name],
+    [propName]: [
+      ...(registeredValidators[target.constructor.name]?.[propName] ?? []),
+      "positive",
+    ],
   };
 }
 
 function validate(obj: any) {
-  const objValidatorConfig = regiteredValidators[obj.constructor.name];
+  const objValidatorConfig = registeredValidators[obj.constructor.name];
   if (!objValidatorConfig) {
     return true;
   }
