@@ -79,13 +79,15 @@ function autobind(target, ctx) {
         target.apply(this);
     };
 }
-function fieldLogger(target, ctx) {
-    console.log("field logger decorator");
-    console.log(target);
-    console.log(ctx);
-    return function (initialValue) {
-        console.log(initialValue);
-        return "";
+function replacer(initValue) {
+    return function replacerDecorator(target, ctx) {
+        console.log("field logger decorator");
+        console.log(target);
+        console.log(ctx);
+        return function (initialValue) {
+            console.log(initialValue);
+            return initValue;
+        };
     };
 }
 var Person = function () {
@@ -111,7 +113,7 @@ var Person = function () {
     __setFunctionName(_classThis, "Person");
     (function () {
         var _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(null) : void 0;
-        _name_decorators = [fieldLogger];
+        _name_decorators = [replacer("Ana")];
         _greet_decorators = [autobind];
         __esDecorate(_classThis, null, _greet_decorators, { kind: "method", name: "greet", static: false, private: false, access: { has: function (obj) { return "greet" in obj; }, get: function (obj) { return obj.greet; } }, metadata: _metadata }, null, _instanceExtraInitializers);
         __esDecorate(null, null, _name_decorators, { kind: "field", name: "name", static: false, private: false, access: { has: function (obj) { return "name" in obj; }, get: function (obj) { return obj.name; }, set: function (obj, value) { obj.name = value; } }, metadata: _metadata }, _name_initializers, _name_extraInitializers);
