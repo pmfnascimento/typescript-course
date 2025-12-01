@@ -143,11 +143,49 @@ button?.addEventListener("click", p.showMessage);
 
 // -----
 
-function Required() {}
+interface ValidatorConfig {
+  [property: string]: {
+    [validatableProp: string]: string[];
+  };
+}
 
-function PositiveNumber() {}
+const regiteredValidators: ValidatorConfig = {};
 
-function validate(obj: object) {}
+function Required(target: any, propName: string) {
+  regiteredValidators[target.constructor.name] = {
+    ...regiteredValidators[target.constructor.name],
+    [propName]: ["required"],
+  };
+}
+
+function PositiveNumber(target: any, propName: string) {
+  regiteredValidators[target.constructor.name] = {
+    ...regiteredValidators[target.constructor.name],
+    [propName]: ["positive"],
+  };
+}
+
+function validate(obj: any) {
+  const objValidatorConfig = regiteredValidators[obj.constructor.name];
+  if (!objValidatorConfig) {
+    return true;
+  }
+
+  let isValid = true;
+  for (const prop in objValidatorConfig) {
+    for (const validator of objValidatorConfig[prop]) {
+      switch (validator) {
+        case "required":
+          isValid = isValid && !!obj[prop];
+          break;
+        case "positive":
+          isValid = isValid && obj[prop] > 0;
+          break;
+      }
+    }
+  }
+  return isValid;
+}
 
 class Course {
   @Required
@@ -171,5 +209,10 @@ constForm?.addEventListener("submit", (event) => {
   const price = +priceEl.value;
 
   const course = new Course(title, price);
+  if (!validate(course)) {
+    alert("Invalid input, please try again!");
+    return;
+  }
+
   console.log(course);
 });
