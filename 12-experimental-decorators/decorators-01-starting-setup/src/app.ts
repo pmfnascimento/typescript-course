@@ -138,5 +138,38 @@ class Printer {
 
 const p = new Printer();
 
-const button = document.querySelector("button");
+const button = document.querySelector("button")!;
 button?.addEventListener("click", p.showMessage);
+
+// -----
+
+function Required() {}
+
+function PositiveNumber() {}
+
+function validate(obj: object) {}
+
+class Course {
+  @Required
+  title: string;
+  @PositiveNumber
+  price: number;
+
+  constructor(t: string, p: number) {
+    this.title = t;
+    this.price = p;
+  }
+}
+
+const constForm = document.querySelector("form");
+constForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const titleEl = document.getElementById("title") as HTMLInputElement;
+  const priceEl = document.getElementById("price") as HTMLInputElement;
+
+  const title = titleEl.value;
+  const price = +priceEl.value;
+
+  const course = new Course(title, price);
+  console.log(course);
+});
