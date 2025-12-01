@@ -29,8 +29,20 @@ function autobind(
   };
 }
 
+function fieldLogger(target: undefined, ctx: ClassFieldDecoratorContext) {
+  console.log("field logger decorator");
+  console.log(target);
+  console.log(ctx);
+
+  return (initialValue: any) => {
+    console.log(initialValue);
+    return "";
+  };
+}
+
 @logger
 class Person {
+  @fieldLogger
   name = "Max";
 
   @autobind

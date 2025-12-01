@@ -79,16 +79,29 @@ function autobind(target, ctx) {
         target.apply(this);
     };
 }
+function fieldLogger(target, ctx) {
+    console.log("field logger decorator");
+    console.log(target);
+    console.log(ctx);
+    return function (initialValue) {
+        console.log(initialValue);
+        return "";
+    };
+}
 var Person = function () {
     var _classDecorators = [logger];
     var _classDescriptor;
     var _classExtraInitializers = [];
     var _classThis;
     var _instanceExtraInitializers = [];
+    var _name_decorators;
+    var _name_initializers = [];
+    var _name_extraInitializers = [];
     var _greet_decorators;
     var Person = _classThis = /** @class */ (function () {
         function Person_1() {
-            this.name = (__runInitializers(this, _instanceExtraInitializers), "Max");
+            this.name = (__runInitializers(this, _instanceExtraInitializers), __runInitializers(this, _name_initializers, "Max"));
+            __runInitializers(this, _name_extraInitializers);
         }
         Person_1.prototype.greet = function () {
             console.log("Hi, I am " + this.name);
@@ -98,8 +111,10 @@ var Person = function () {
     __setFunctionName(_classThis, "Person");
     (function () {
         var _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(null) : void 0;
+        _name_decorators = [fieldLogger];
         _greet_decorators = [autobind];
         __esDecorate(_classThis, null, _greet_decorators, { kind: "method", name: "greet", static: false, private: false, access: { has: function (obj) { return "greet" in obj; }, get: function (obj) { return obj.greet; } }, metadata: _metadata }, null, _instanceExtraInitializers);
+        __esDecorate(null, null, _name_decorators, { kind: "field", name: "name", static: false, private: false, access: { has: function (obj) { return "name" in obj; }, get: function (obj) { return obj.name; }, set: function (obj, value) { obj.name = value; } }, metadata: _metadata }, _name_initializers, _name_extraInitializers);
         __esDecorate(null, _classDescriptor = { value: _classThis }, _classDecorators, { kind: "class", name: _classThis.name, metadata: _metadata }, null, _classExtraInitializers);
         Person = _classThis = _classDescriptor.value;
         if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, { enumerable: true, configurable: true, writable: true, value: _metadata });
