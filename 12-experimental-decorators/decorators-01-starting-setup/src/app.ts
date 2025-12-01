@@ -32,3 +32,40 @@ class Person {
 
 const person = new Person();
 console.log(person);
+
+// ---- ///
+
+function Log(target: any, propertyName: string | Symbol) {
+  console.log("Property decorator");
+  console.log(target, propertyName);
+}
+
+class Product {
+  @Log
+  private _title: string;
+  private _price: number;
+  constructor(t: string, p: number) {
+    this._title = t;
+    this._price = p;
+  }
+
+  set price(val: number) {
+    if (val > 0) {
+      this.price = val;
+    } else {
+      throw new Error("Price must be positive");
+    }
+  }
+
+  set title(val: string) {
+    this._title = val;
+  }
+
+  get price() {
+    return this._price;
+  }
+
+  get title() {
+    return this._title;
+  }
+}
