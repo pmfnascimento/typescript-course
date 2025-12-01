@@ -100,3 +100,8 @@ class Product {
     return this._price * (1 + tax);
   }
 }
+
+const product = new Product("Book", 19);
+console.log(product);
+console.log(product.price);
+console.log(product.title);
