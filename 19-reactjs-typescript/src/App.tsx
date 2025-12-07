@@ -17,12 +17,16 @@ function App() {
       }
   ]);
 
+  function handleDeleteGoal(id: number) {
+    setGoals((prevGoals) => prevGoals.filter(g => g.id !== id));
+  }
+
   return (
     <main>
     <Header image={{src: goalsImg, alt: 'A list of goals'}}>
       <h1>Hello World Children!</h1>
     </Header>
-    <CourseGoals goals={goals} />
+    <CourseGoals goals={goals} onDelete={handleDeleteGoal}/>
     </main>
   )
 }
