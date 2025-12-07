@@ -3,9 +3,11 @@ import goalsImg from './assets/goals.jpg'
 function App() {
 
   return (
-    <>
-    <Header image={{src: goalsImg, alt: 'A list of goals'}} />
-    </>
+    <main>
+    <Header image={{src: goalsImg, alt: 'A list of goals'}}>
+      <h1>Hello World Children!</h1>
+    </Header>
+    </main>
   )
 }
 
