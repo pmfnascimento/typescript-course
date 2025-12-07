@@ -1,14 +1,10 @@
 import Header from './components/Header'
 import CourseGoals from './components/CourseGoals'
 import goalsImg from './assets/goals.jpg'
+import { useState } from 'react'
 function App() {
 
-  return (
-    <main>
-    <Header image={{src: goalsImg, alt: 'A list of goals'}}>
-      <h1>Hello World Children!</h1>
-    </Header>
-    <CourseGoals goals={[
+  const [goals, setGoals] = useState([
       {
         id: 1, 
         title: 'Learn TS', 
@@ -19,7 +15,14 @@ function App() {
         title: 'Pratice TS', 
         description: 'Pratice working with TypeScript'
       }
-        ]} />
+  ]);
+
+  return (
+    <main>
+    <Header image={{src: goalsImg, alt: 'A list of goals'}}>
+      <h1>Hello World Children!</h1>
+    </Header>
+    <CourseGoals goals={goals} />
     </main>
   )
 }

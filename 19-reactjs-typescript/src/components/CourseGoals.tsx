@@ -1,4 +1,3 @@
-import type { FC } from "react";
 
 type Goal = {
     id: number;
