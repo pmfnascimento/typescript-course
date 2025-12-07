@@ -1,19 +1,34 @@
-import express, {
-  type Request,
-  type Response,
-  type NextFunction,
-} from "express";
+interface Todo {
+  id: number;
+  text: string;
+}
 
-import todoRoutes from "./routes/todo.ts";
+let TODOS: Todo[] = [];
 
-const app = express();
+export function addTodo(text: string) {
+  const newTodo = { id: Math.random(), text };
+  TODOS.push(newTodo);
+  return newTodo;
+}
 
-app.use(express.json());
+export function getTodo(id: number) {
+  const todo = TODOS.find((t) => t.id === id);
+  if (!todo) {
+    throw new Error("Todo not found!");
+  }
+  return todo;
+}
 
-app.use(todoRoutes);
+export function getTodos() {
+  return TODOS;
+}
 
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  res.status(500).json({ message: "An error occurred!" });
-});
+export function removeTodo(id: number) {
+  TODOS = TODOS.filter((t) => t.id !== id);
+}
 
-app.listen(3000);
+export function updateTodo(id: number, text: string) {
+  const todo = getTodo(id);
+  todo.text = text;
+  return todo;
+}

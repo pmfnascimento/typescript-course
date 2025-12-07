@@ -3,7 +3,7 @@
     "target": "es2022",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "module": "NodeNext",
+    "module": "nodenext",
     "outDir": "dist",
     "lib": ["es2022", "dom"],
     "strict": true,
@@ -11,5 +11,6 @@
     "noEmit": true,
     "verbatimModuleSyntax": true,
     "erasableSyntaxOnly": true
-  }
+  },
+  "compileOnSave": true
 }
